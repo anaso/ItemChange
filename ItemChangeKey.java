@@ -38,32 +38,37 @@ public class ItemChangeKey extends KeyHandler
 	@Override
 	public void keyDown(EnumSet<TickType> types, KeyBinding kb, boolean tickEnd, boolean isRepeat)
 	{
+		Minecraft MC = ModLoader.getMinecraftInstance();
 		try{
-			if(tickEnd && !ModLoader.getMinecraftInstance().currentScreen.allowUserInput)
+			if(tickEnd && MC.currentScreen == null)
 			{
-				//loadOptions();
-				EntityPlayer entityplayer = ModLoader.getMinecraftInstance().thePlayer;
-
-				if(kb.keyCode == this.bindKeyL)
+				if(!MC.ingameGUI.getChatGUI().getChatOpen())
 				{
-					if (entityplayer.inventory.currentItem == 0)
+					//loadOptions();
+					EntityPlayer entityplayer = ModLoader.getMinecraftInstance().thePlayer;
+					//System.out.println(MC.gameSettings.getKeyBinding(par1EnumOptions));
+	
+					if(kb.keyCode == this.bindKeyL)
 					{
-						entityplayer.inventory.currentItem = 8;
+						if (entityplayer.inventory.currentItem == 0)
+						{
+							entityplayer.inventory.currentItem = 8;
+						}
+						else
+						{
+							entityplayer.inventory.currentItem--;
+						}
 					}
-					else
+					else if(kb.keyCode == this.bindKeyR)
 					{
-						entityplayer.inventory.currentItem--;
-					}
-				}
-				else if(kb.keyCode == this.bindKeyR)
-				{
-					if (entityplayer.inventory.currentItem == 8)
-					{
-						entityplayer.inventory.currentItem = 0;
-					}
-					else
-					{
-						entityplayer.inventory.currentItem++;
+						if (entityplayer.inventory.currentItem == 8)
+						{
+							entityplayer.inventory.currentItem = 0;
+						}
+						else
+						{
+							entityplayer.inventory.currentItem++;
+						}
 					}
 				}
 			}

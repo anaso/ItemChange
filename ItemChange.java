@@ -19,7 +19,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 (
 	modid = "ItemChange",
 	name = "Item Change",
-	version = "1.5.2"
+	version = "1.6"
 )
 
 @NetworkMod
@@ -35,6 +35,7 @@ public class ItemChange
 	@Mod.PostInit
 	public void PostInit(FMLPostInitializationEvent event)
 	{
+		// キーバインドの設定
 		KeyBinding[] myBinding = {new KeyBinding("ItemLeft", bindKeyL), new KeyBinding("ItemRight", bindKeyR)};
 
 		boolean[] myBindingRepeat = {false, false};
