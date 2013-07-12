@@ -39,9 +39,9 @@ public class ItemChangeKey extends KeyHandler
 	public void keyDown(EnumSet<TickType> types, KeyBinding kb, boolean tickEnd, boolean isRepeat)
 	{
 		try{
-			if(tickEnd && !ModLoader.getMinecraftInstance().isGamePaused)
+			if(tickEnd && !ModLoader.getMinecraftInstance().currentScreen.allowUserInput)
 			{
-				loadOptions();
+				//loadOptions();
 				EntityPlayer entityplayer = ModLoader.getMinecraftInstance().thePlayer;
 
 				if(kb.keyCode == this.bindKeyL)
@@ -73,7 +73,7 @@ public class ItemChangeKey extends KeyHandler
 			System.out.println(e);
 		}
 	}
-
+/*
 	public void loadOptions()
 	{
 		Minecraft MC = ModLoader.getMinecraftInstance();
@@ -121,7 +121,7 @@ public class ItemChangeKey extends KeyHandler
 			System.out.println(e);
 		}
 	}
-
+*/
 	@Override
 	public void keyUp(EnumSet<TickType> types, KeyBinding kb, boolean tickEnd)
 	{
