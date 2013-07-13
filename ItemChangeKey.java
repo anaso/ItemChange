@@ -8,21 +8,18 @@ import org.lwjgl.input.Keyboard;
 import cpw.mods.fml.client.registry.KeyBindingRegistry.KeyHandler;
 import cpw.mods.fml.common.TickType;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.client.settings.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.src.*;
 
 public class ItemChangeKey extends KeyHandler
 {
-	//boolean Check = false;
 
 	public static int bindKeyL = Keyboard.KEY_LEFT;
 	public static int bindKeyR = Keyboard.KEY_RIGHT;
 
 	public ItemChangeKey(KeyBinding[] keyBindings, boolean[] repeatings)
 	{
-		//the first value is an array of KeyBindings, the second is whether or not the call
-		//keyDown should repeat as long as the key is down
 		super(keyBindings, repeatings);
 
 		this.bindKeyL = keyBindings[0].keyCode;
@@ -44,10 +41,23 @@ public class ItemChangeKey extends KeyHandler
 			{
 				if(!MC.ingameGUI.getChatGUI().getChatOpen())
 				{
-					//loadOptions();
+					//設定したキーであるかの確認
+					
 					EntityPlayer entityplayer = ModLoader.getMinecraftInstance().thePlayer;
-					//System.out.println(MC.gameSettings.getKeyBinding(par1EnumOptions));
+					
+					for(int i = 0; MC.gameSettings.keyBindings.length > i; i++)
+					{
+						if(MC.gameSettings.keyBindings[i].keyDescription.equals("ItemLeft"))
+						{
+							this.bindKeyL = MC.gameSettings.keyBindings[i].keyCode;
+						}
+						else if(MC.gameSettings.keyBindings[i].keyDescription.equals("ItemRight"))
+						{
+							this.bindKeyR = MC.gameSettings.keyBindings[i].keyCode;
+						}
+					}
 	
+					// 動作の実行
 					if(kb.keyCode == this.bindKeyL)
 					{
 						if (entityplayer.inventory.currentItem == 0)
@@ -78,55 +88,7 @@ public class ItemChangeKey extends KeyHandler
 			System.out.println(e);
 		}
 	}
-/*
-	public void loadOptions()
-	{
-		Minecraft MC = ModLoader.getMinecraftInstance();
-		File optionsFile = new File(MC.getMinecraftDir(), "options.txt");
 
-		try
-		{
-			if (!optionsFile.exists())
-			{
-				return;
-			}
-
-			BufferedReader var1 = new BufferedReader(new FileReader(optionsFile));
-			String var2 = "";
-
-			while ((var2 = var1.readLine()) != null)
-			{
-				try
-				{
-					String[] var3 = var2.split(":");
-
-					for (int var4 = 0; var4 < this.keyBindings.length; ++var4)
-					{
-						if (var3[0].equals("key_ItemLeft"))
-						{
-							bindKeyL = Integer.parseInt(var3[1]);
-						}
-						else if(var3[0].equals("key_ItemRight"))
-						{
-							bindKeyR = Integer.parseInt(var3[1]);
-						}
-					}
-				}
-				catch (Exception e)
-				{
-					System.out.println(e);
-				}
-			}
-
-			KeyBinding.resetKeyBindingArrayAndHash();
-			var1.close();
-		}
-		catch (Exception e)
-		{
-			System.out.println(e);
-		}
-	}
-*/
 	@Override
 	public void keyUp(EnumSet<TickType> types, KeyBinding kb, boolean tickEnd)
 	{
