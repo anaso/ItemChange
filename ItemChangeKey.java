@@ -41,7 +41,7 @@ public class ItemChangeKey extends KeyHandler
 			{
 				if(!MC.ingameGUI.getChatGUI().getChatOpen())
 				{
-					//İ’è‚µ‚½ƒL[‚Å‚ ‚é‚©‚ÌŠm”F
+					//è¨­å®šã—ãŸã‚­ãƒ¼ã§ã‚ã‚‹ã‹ã®ç¢ºèª
 					
 					EntityPlayer entityplayer = ModLoader.getMinecraftInstance().thePlayer;
 					
@@ -57,7 +57,7 @@ public class ItemChangeKey extends KeyHandler
 						}
 					}
 	
-					// “®ì‚ÌÀs
+					// å‹•ä½œã®å®Ÿè¡Œ
 					if(kb.keyCode == this.bindKeyL)
 					{
 						if (entityplayer.inventory.currentItem == 0)

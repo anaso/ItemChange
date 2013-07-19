@@ -35,7 +35,7 @@ public class ItemChange
 	@Mod.PostInit
 	public void PostInit(FMLPostInitializationEvent event)
 	{
-		// ƒL[ƒoƒCƒ“ƒh‚Ìİ’è
+		// ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰ã®è¨­å®š
 		KeyBinding[] myBinding = {new KeyBinding("ItemLeft", bindKeyL), new KeyBinding("ItemRight", bindKeyR)};
 
 		boolean[] myBindingRepeat = {false, false};
