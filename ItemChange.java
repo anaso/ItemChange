@@ -11,6 +11,7 @@ import org.lwjgl.input.Keyboard;
 import cpw.mods.fml.client.registry.KeyBindingRegistry;
 import cpw.mods.fml.client.registry.KeyBindingRegistry.KeyHandler;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -32,7 +33,7 @@ public class ItemChange
 	public static int bindKeyL = Keyboard.KEY_LEFT;
 	public static int bindKeyR = Keyboard.KEY_RIGHT;
 
-	@Mod.PostInit
+	@EventHandler
 	public void PostInit(FMLPostInitializationEvent event)
 	{
 		// キーバインドの設定
