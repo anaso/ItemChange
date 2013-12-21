@@ -25,7 +25,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 @NetworkMod
 (
-	clientSideRequired = true
+		clientSideRequired = false,
+		serverSideRequired = false
 )
 
 public class ItemChange
