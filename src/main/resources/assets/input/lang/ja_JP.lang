@@ -1,0 +1,3 @@
+key.slotLeft.name=左のスロットに移動
+key.slotRight.name=右のスロットに移動
+itemChange.inputEvent.name=Mod ItemChange Keys
