@@ -6,7 +6,7 @@ Minecraft Mod
 
 ・使い方
 設定は オプションのControls内にあります。
-ItemRight でスロットを右に、ItemLeft でスロットが左に移動します。
+Move Slot Right でスロットを右に、Move Slot Left でスロットが左に移動します。
 デフォルトでは矢印キーに設定してあります。
 
 ・インストール

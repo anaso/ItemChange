@@ -13,7 +13,7 @@ import org.lwjgl.input.Keyboard;
 
 @Mod
 (
-	modid = "anaso.ItemChange",
+	modid = "ItemChange",
 	version = "1.0"
 )
 
